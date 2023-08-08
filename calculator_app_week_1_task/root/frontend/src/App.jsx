@@ -1,4 +1,3 @@
-import { useState } from "react";
 import MDHistorySection from "./Components/HistorySection/MDHistorySection";
 import useWindowSize from "./Hooks/useWindowSize";
 import LGHistorySection from "./Components/HistorySection/LGHistorySection";
@@ -8,8 +7,12 @@ import useExpressionManager from "./Hooks/useExpressionManager";
 
 function App() {
   const windowSize = useWindowSize(1, 8);
-  const { calculationHistory, saveCalculation, fetchCalculationHistory } =
-    useCalculationHistoryManager();
+  const {
+    calculationHistory,
+    saveCalculation,
+    fetchCalculationHistory,
+    deleteCalculation,
+  } = useCalculationHistoryManager();
 
   const {
     root,
@@ -32,6 +35,7 @@ function App() {
                 clearExpression={clearExpression}
                 replaceExpression={replaceExpression}
                 saveCalculation={saveCalculation}
+                deleteCalculation={deleteCalculation}
                 screenWidth={windowSize["width"]}
                 calculationHistory={calculationHistory}
                 loadMoreCalculationHistory={fetchCalculationHistory}
@@ -45,6 +49,7 @@ function App() {
           calculationHistory={calculationHistory}
           loadMoreCalculationHistory={fetchCalculationHistory}
           replaceExpression={replaceExpression}
+          deleteCalculation={deleteCalculation}
         />
       ) : null}
       {windowSize["width"] >= 1024 ? (
@@ -52,6 +57,7 @@ function App() {
           calculationHistory={calculationHistory}
           loadMoreCalculationHistory={fetchCalculationHistory}
           replaceExpression={replaceExpression}
+          deleteCalculation={deleteCalculation}
         />
       ) : null}
     </div>

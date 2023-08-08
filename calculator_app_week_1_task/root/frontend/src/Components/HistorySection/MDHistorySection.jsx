@@ -7,6 +7,7 @@ export default function MDHistorySection({
   calculationHistory,
   loadMoreCalculationHistory,
   replaceExpression,
+  deleteCalculation,
 }) {
   const [isHistoryVisible, setHistoryVisible] = useState(false);
   const toggleVisibilityState = (e) => {
@@ -64,12 +65,15 @@ export default function MDHistorySection({
           </button>
         </div>
         <div className="h-full flex flex-col gap-3 overflow-auto px-1">
-          {calculationHistory["history"].map((calculation) => {
+          {calculationHistory["history"].map((calculation, index) => {
+            console.log(calculation["_id"]);
             return (
               <HistoryCard
-                key={`${uuid()}-${uuid()}`}
+                key={calculation["_id"]}
+                index={index}
                 calculation={calculation}
                 replaceExpression={replaceExpression}
+                deleteCalculation={deleteCalculation}
                 toggleVisibilityState={toggleVisibilityState}
               />
             );

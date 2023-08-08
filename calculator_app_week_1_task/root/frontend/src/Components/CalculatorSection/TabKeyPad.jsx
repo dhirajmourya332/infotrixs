@@ -313,8 +313,14 @@ export default function TabKeyPad({
           >
             -
           </button>
-          <button className="p-2 bg-white rounded-md w-full active:bg-slate-200 ">
-            sin
+          <button
+            className="p-2 bg-white rounded-md w-full active:bg-slate-200 "
+            onClick={() => {
+              addElement({ type: "number", value: 0 });
+              addElement({ type: "number", value: 0 });
+            }}
+          >
+            00
           </button>
           <button
             className="p-2 bg-white rounded-md w-full active:bg-slate-200 "

@@ -12,6 +12,7 @@ export default function Calculator({
   clearExpression,
   replaceExpression,
   saveCalculation,
+  deleteCalculation,
 }) {
   return (
     <>
@@ -26,6 +27,7 @@ export default function Calculator({
           calculationHistory={calculationHistory}
           loadMoreCalculationHistory={loadMoreCalculationHistory}
           saveCalculation={saveCalculation}
+          deleteCalculation={deleteCalculation}
         />
       ) : (
         <TabKeyPad

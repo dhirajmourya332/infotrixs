@@ -6,6 +6,7 @@ export default function LGHistorySection({
   calculationHistory,
   loadMoreCalculationHistory,
   replaceExpression,
+  deleteCalculation,
 }) {
   return (
     <div className="relative w-80 h-full flex flex-col gap-3 bg-white shrink-0">
@@ -17,6 +18,7 @@ export default function LGHistorySection({
               key={`${uuid()}-${uuid()}`}
               calculation={calculation}
               replaceExpression={replaceExpression}
+              deleteCalculation={deleteCalculation}
             />
           );
         })}

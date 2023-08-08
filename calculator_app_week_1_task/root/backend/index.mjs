@@ -71,7 +71,9 @@ if (cluster.isPrimary) {
           created_at: new Date(),
         });
       if (writeAck["acknowledged"]) {
-        res.sendStatus(200);
+        res.setHeader("content-type", "Application/json");
+        res.write(JSON.stringify({ _id: writeAck["insertedId"] }));
+        res.end();
       } else {
         res.sendStatus(404);
       }
@@ -100,6 +102,12 @@ if (cluster.isPrimary) {
       console.log(error);
       res.sendStatus(500); // internal server error
     }
+  });
+
+  //this is healths api- prevents the free instance from sleeping when added to cronjob
+  app.get("/healthz", (req, res) => {
+    res.sendStatus(200);
+    res.end();
   });
 
   app.listen(process.env.PORT || 5000, () => {

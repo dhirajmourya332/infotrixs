@@ -55,24 +55,49 @@ export default function useCalculationHistoryManager() {
           result: result,
         })
         .then((response) => {
-          if (response.status === 200) {
-            setCalculationHistory((prevCalculationHistory) => {
-              const prevCalculationHistoryClone = JSON.parse(
-                JSON.stringify(prevCalculationHistory)
-              );
-              prevCalculationHistoryClone["history"].unshift({
-                expression: expression,
-                result: result,
-              });
-              return prevCalculationHistoryClone;
+          const _id = response["data"]["_id"];
+          setCalculationHistory((prevCalculationHistory) => {
+            const prevCalculationHistoryClone = JSON.parse(
+              JSON.stringify(prevCalculationHistory)
+            );
+            prevCalculationHistoryClone["history"].unshift({
+              _id: _id,
+              expression: expression,
+              result: result,
             });
-            resolve(true);
-          }
+            return prevCalculationHistoryClone;
+          });
+          resolve(true);
         })
         .catch((e) => {
           reject(e);
         });
     });
   };
-  return { calculationHistory, saveCalculation, fetchCalculationHistory };
+  const deleteCalculation = async (calculationId, index) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .delete(`/calculation/${calculationId}`)
+        .then((response) => {
+          setCalculationHistory((prevCalculationHistory) => {
+            const prevCalculationHistoryClone = JSON.parse(
+              JSON.stringify(prevCalculationHistory)
+            );
+            prevCalculationHistoryClone["history"].splice(index, 1);
+            return prevCalculationHistoryClone;
+          });
+          resolve(true);
+        })
+        .catch((e) => {
+          reject(e);
+        });
+    });
+  };
+
+  return {
+    calculationHistory,
+    saveCalculation,
+    fetchCalculationHistory,
+    deleteCalculation,
+  };
 }

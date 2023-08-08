@@ -13,6 +13,7 @@ export default function MobileKeypad({
   loadMoreCalculationHistory,
   replaceExpression,
   saveCalculation,
+  deleteCalculation,
 }) {
   const [currentSection, setCurrentSection] = useState("number");
   const [isHistorySectionVisible, setHistorySectionVisible] = useState(false);
@@ -40,6 +41,7 @@ export default function MobileKeypad({
                   hasMoreToLoad={calculation["hasMore"]}
                   calculation={calculation}
                   replaceExpression={replaceExpression}
+                  deleteCalculation={deleteCalculation}
                 />
               );
             })}
@@ -158,10 +160,11 @@ export default function MobileKeypad({
                     <button
                       className="bg-white py-1 rounded-md active:bg-slate-200"
                       onClick={() => {
-                        addElement({ type: "decimal" });
+                        addElement({ type: "number", value: 0 });
+                        addElement({ type: "number", value: 0 });
                       }}
                     >
-                      .
+                      00
                     </button>
                   </div>
                   <div className="w-full flex flex-col gap-3">
