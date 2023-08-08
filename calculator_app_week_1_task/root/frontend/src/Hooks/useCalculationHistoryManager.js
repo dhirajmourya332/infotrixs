@@ -83,7 +83,14 @@ export default function useCalculationHistoryManager() {
             const prevCalculationHistoryClone = JSON.parse(
               JSON.stringify(prevCalculationHistory)
             );
-            prevCalculationHistoryClone["history"].splice(index, 1);
+            prevCalculationHistoryClone["history"].forEach(
+              (calculation, index) => {
+                if (calculation["_id"] === calculationId) {
+                  prevCalculationHistoryClone["history"].splice(index, 1);
+                  return prevCalculationHistoryClone;
+                }
+              }
+            );
             return prevCalculationHistoryClone;
           });
           resolve(true);
