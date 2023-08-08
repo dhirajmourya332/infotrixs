@@ -52,6 +52,7 @@ export default function MobileKeypad({
           </div>
           <button
             className="absolute z-10 h-10 w-10 bottom-0 right-0 bg-slate-200 border-2 border-slate-800 p-3 rounded-full"
+            aria-label="view history"
             onClick={toggleHistorySection}
           >
             <svg
@@ -216,6 +217,7 @@ export default function MobileKeypad({
                   <div className="w-full flex flex-col gap-3">
                     <button
                       className="bg-white py-2 rounded-md active:bg-red-200 font-bold text-red-800"
+                      aria-label="clear all"
                       onClick={clearExpression}
                     >
                       C
@@ -257,6 +259,7 @@ export default function MobileKeypad({
                 <div className="w-1/4 flex flex-col gap-3">
                   <button
                     className="bg-white py-2 rounded-md active:bg-slate-200 flex items-center justify-center"
+                    aria-label="backspace"
                     onClick={deleteElement}
                   >
                     <svg
@@ -492,6 +495,7 @@ export default function MobileKeypad({
             </button>
             <button
               className="w-10 h-10 rounded-full p-2 shrink-0 bg-slate-200"
+              aria-label="hide history"
               onClick={toggleHistorySection}
             >
               <svg

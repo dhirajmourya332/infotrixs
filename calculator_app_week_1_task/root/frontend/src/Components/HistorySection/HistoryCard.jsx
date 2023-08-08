@@ -28,6 +28,7 @@ export default function HistoryCard({
       </div>
       <div
         className="h-10 w-10 bg-slate-200 active:bg-red-200 rounded-full p-2 shrink-0"
+        aria-label="delete calculation"
         onClick={(e) => {
           e.stopPropagation();
           deleteCalculation(calculation["_id"], index);

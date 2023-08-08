@@ -19,6 +19,7 @@ export default function MDHistorySection({
   return isHistoryVisible ? (
     <div
       className="absolute top-0 left-0 w-full h-full z-10 bg-black/50 flex items-stretch justify-end"
+      aria-label="hide history"
       onClick={toggleVisibilityState}
     >
       <div
@@ -31,6 +32,7 @@ export default function MDHistorySection({
           <h2 className="px-2 text-lg font-bold">Hisory</h2>
           <button
             className=" m-4 ml-auto h-10 w-10 p-3 rounded-full border-2 border-gray-800 hover:bg-gray-200"
+            aria-label="hide history"
             onClick={toggleVisibilityState}
           >
             <svg
@@ -88,6 +90,7 @@ export default function MDHistorySection({
   ) : (
     <button
       className="fixed top-4 right-4 h-10 w-10 bg-white rounded-full p-2"
+      aria-label="view history"
       onClick={toggleVisibilityState}
     >
       <svg

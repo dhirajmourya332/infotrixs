@@ -164,12 +164,14 @@ export default function TabKeyPad({
           </button>
           <button
             className="p-2 bg-white rounded-md w-full active:bg-red-50  font-bold text-red-800"
+            aria-label="clear all"
             onClick={clearExpression}
           >
             C
           </button>
           <button
             className="p-2 bg-white rounded-md w-full active:bg-slate-200 flex items-center justify-center"
+            aria-label="backspace"
             onClick={deleteElement}
           >
             <svg
