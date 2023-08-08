@@ -25,10 +25,10 @@ export default function MobileKeypad({
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       {isHistorySectionVisible ? (
         <div
-          className={`relative h-[316px] flex flex-col gap-3 bg-slate-200/50 rounded-md`}
+          className={`relative h-[364px] flex flex-col gap-3 bg-slate-200/50 rounded-md`}
         >
           <h2 className="font-bold p-2 bg-slate-100 rounded-t-md px-3">
             History
@@ -89,7 +89,7 @@ export default function MobileKeypad({
         <>
           <div className="flex flex-row gap-3">
             <button
-              className={`py-1 w-full  ${
+              className={`py-2 w-full  ${
                 currentSection === "number" ? "bg-slate-300/50 font-bold" : ""
               }  rounded-md rounded-b-none`}
               onClick={() => {
@@ -99,7 +99,7 @@ export default function MobileKeypad({
               123
             </button>
             <button
-              className={`py-1 w-full  ${
+              className={`py-2 w-full  ${
                 currentSection === "function" ? "bg-slate-300/50 font-bold" : ""
               }  rounded-md rounded-b-none`}
               onClick={() => {
@@ -122,7 +122,7 @@ export default function MobileKeypad({
                 <div className="w-full flex flex-row gap-2">
                   <div className="w-full flex flex-col gap-3">
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({
                           type: "bracket",
@@ -134,7 +134,7 @@ export default function MobileKeypad({
                       {"("}
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 7 });
                       }}
@@ -142,7 +142,7 @@ export default function MobileKeypad({
                       7
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 4 });
                       }}
@@ -150,7 +150,7 @@ export default function MobileKeypad({
                       4
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 1 });
                       }}
@@ -158,7 +158,7 @@ export default function MobileKeypad({
                       1
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 0 });
                         addElement({ type: "number", value: 0 });
@@ -169,7 +169,7 @@ export default function MobileKeypad({
                   </div>
                   <div className="w-full flex flex-col gap-3">
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({
                           type: "bracket",
@@ -181,7 +181,7 @@ export default function MobileKeypad({
                       {")"}
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 8 });
                       }}
@@ -189,7 +189,7 @@ export default function MobileKeypad({
                       8
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 5 });
                       }}
@@ -197,7 +197,7 @@ export default function MobileKeypad({
                       5
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 2 });
                       }}
@@ -205,7 +205,7 @@ export default function MobileKeypad({
                       2
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 0 });
                       }}
@@ -215,13 +215,13 @@ export default function MobileKeypad({
                   </div>
                   <div className="w-full flex flex-col gap-3">
                     <button
-                      className="bg-white py-1 rounded-md active:bg-red-200 font-bold text-red-800"
+                      className="bg-white py-2 rounded-md active:bg-red-200 font-bold text-red-800"
                       onClick={clearExpression}
                     >
                       C
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 9 });
                       }}
@@ -229,7 +229,7 @@ export default function MobileKeypad({
                       9
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 6 });
                       }}
@@ -237,7 +237,7 @@ export default function MobileKeypad({
                       6
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "number", value: 3 });
                       }}
@@ -245,7 +245,7 @@ export default function MobileKeypad({
                       3
                     </button>
                     <button
-                      className="bg-white py-1 rounded-md active:bg-slate-200"
+                      className="bg-white py-2 rounded-md active:bg-slate-200"
                       onClick={() => {
                         addElement({ type: "decimal" });
                       }}
@@ -256,7 +256,7 @@ export default function MobileKeypad({
                 </div>
                 <div className="w-1/4 flex flex-col gap-3">
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200 flex items-center justify-center"
+                    className="bg-white py-2 rounded-md active:bg-slate-200 flex items-center justify-center"
                     onClick={deleteElement}
                   >
                     <svg
@@ -289,7 +289,7 @@ export default function MobileKeypad({
                     </svg>
                   </button>
                   <button
-                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-1 rounded-md font-bold"
+                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-2 rounded-md font-bold"
                     onClick={() => {
                       addElement({
                         type: "operator",
@@ -300,7 +300,7 @@ export default function MobileKeypad({
                     *
                   </button>
                   <button
-                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-1 rounded-md font-bold"
+                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-2 rounded-md font-bold"
                     onClick={() => {
                       addElement({
                         type: "operator",
@@ -311,7 +311,7 @@ export default function MobileKeypad({
                     /
                   </button>
                   <button
-                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-1 rounded-md font-bold"
+                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-2 rounded-md font-bold"
                     onClick={() => {
                       addElement({
                         type: "operator",
@@ -322,7 +322,7 @@ export default function MobileKeypad({
                     +
                   </button>
                   <button
-                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-1 rounded-md font-bold"
+                    className="bg-slate-700 active:bg-slate-800 text-slate-100 py-2 rounded-md font-bold"
                     onClick={() => {
                       addElement({
                         type: "operator",
@@ -338,7 +338,7 @@ export default function MobileKeypad({
               <>
                 <div className="w-full flex flex-col gap-3">
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "constant",
@@ -350,7 +350,7 @@ export default function MobileKeypad({
                     π
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "constant",
@@ -362,7 +362,7 @@ export default function MobileKeypad({
                     E
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -374,7 +374,7 @@ export default function MobileKeypad({
                     sqrt
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -386,7 +386,7 @@ export default function MobileKeypad({
                     square
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -400,7 +400,7 @@ export default function MobileKeypad({
                 </div>
                 <div className="w-full flex flex-col gap-3">
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -412,7 +412,7 @@ export default function MobileKeypad({
                     sin
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -424,7 +424,7 @@ export default function MobileKeypad({
                     cos
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -436,7 +436,7 @@ export default function MobileKeypad({
                     tan
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",
@@ -448,7 +448,7 @@ export default function MobileKeypad({
                     fact
                   </button>
                   <button
-                    className="bg-white py-1 rounded-md active:bg-slate-200"
+                    className="bg-white py-2 rounded-md active:bg-slate-200"
                     onClick={() => {
                       addElement({
                         type: "function",

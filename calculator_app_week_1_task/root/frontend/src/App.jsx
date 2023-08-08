@@ -27,7 +27,7 @@ function App() {
         <div className="w-full max-w-md md:w-10/12 md:max-w-3xl lg:w-10/12 lg:max-w-4xl p-2 sm:p-3">
           <div className="relative w-full  flex flex-col">
             <div className="absolute top-0 left-0 h-full w-full backdrop-blur bg-slate-200/40 border-2 border-slate-200/60 rounded-lg"></div>
-            <div className="z-10  w-full p-2 sm:p-3 flex flex-col gap-3 py-3">
+            <div className="z-10  w-full px-2 sm:p-3 sm:py-4 flex flex-col gap-4 py-2">
               <Calculator
                 root={root}
                 addElement={addElement}
