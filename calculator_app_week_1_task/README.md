@@ -2,6 +2,6 @@
 
 Requirements:
 
-- Do basic calculations
-- Save the calculations to database
-- Fetch all previous calculations from database
+- [x] Do basic calculations
+- [x] Save the calculations to database
+- [x] Fetch all previous calculations from database
