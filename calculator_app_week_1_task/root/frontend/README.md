@@ -5,6 +5,6 @@ Techs used:
 - ReactJS
 - TailwindCSS
 
-Performance:
+#### Chrome Lighthouse Report:
 
 ![Alt text](./chrome_lighthouse_report.jpg "Chrome Lighthouse Report")

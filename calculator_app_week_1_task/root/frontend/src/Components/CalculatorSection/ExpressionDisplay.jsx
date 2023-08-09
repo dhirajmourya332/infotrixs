@@ -2,7 +2,7 @@
  * this component displays the expression and blinking cursor
  */
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import StringifyExpression from "../../HelperFunctions/StringifyExpression";
 
 export default function ExpressionDisplay({ expressionRoot }) {
@@ -51,7 +51,7 @@ export default function ExpressionDisplay({ expressionRoot }) {
     );
   };
   return (
-    <div className="py-2 px-3 bg-slate-300 text-2xl border border-slate-200 rounded-md w-full h-12 overflow-hidden">
+    <div className="py-2 px-3 bg-white text-2xl rounded-md w-full h-12 overflow-hidden">
       <div
         className="h-full w-full overflow-x-auto overflow-y-hidden text-right whitespace-nowrap"
         style={{ overflowAnchor: "none" }}

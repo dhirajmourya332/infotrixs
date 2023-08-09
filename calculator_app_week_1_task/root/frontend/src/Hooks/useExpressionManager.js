@@ -10,7 +10,7 @@
  *
  */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useExpressionManager() {
   const [root, setRoot] = useState({
@@ -18,6 +18,51 @@ export default function useExpressionManager() {
     expression: [],
     cursorStack: [0],
   });
+
+  useEffect(() => {
+    const mapKeyBoardToCalculatorKeyPad = (e) => {
+      console.log(e.key);
+      switch (e.key) {
+        case "+":
+          addElement({ type: "operator", operator_type: "addition" });
+          break;
+        case "-":
+          addElement({ type: "operator", operator_type: "substraction" });
+          break;
+        case "*":
+          addElement({ type: "operator", operator_type: "multiplication" });
+          break;
+        case "/":
+          addElement({ type: "operator", operator_type: "division" });
+          break;
+
+        case "" + Number(e.key) < 10 ? e.key : null + "":
+          addElement({ type: "number", value: Number(e.key) });
+          break;
+
+        case "(":
+          addElement({ type: "bracket", bracket_type: "opening" });
+          break;
+        case ")":
+          addElement({ type: "bracket", bracket_type: "closing" });
+          break;
+
+        case ".":
+          addElement({ type: "decimal" });
+          break;
+        case "Backspace":
+          deleteElement();
+          break;
+
+        default:
+          break;
+      }
+    };
+    window.addEventListener("keydown", mapKeyBoardToCalculatorKeyPad);
+    return () => {
+      window.removeEventListener("keydown", mapKeyBoardToCalculatorKeyPad);
+    };
+  }, []);
 
   const addNumber = (root, element) => {
     let topExpressionLayer = root;
@@ -255,26 +300,49 @@ export default function useExpressionManager() {
           root["cursorStack"][root["cursorStack"].length - 1],
           1
         );
-      } else if (
+      }
+      //cases similar to sin(30 + 90)|
+      else if (
         topExpressionLayer["expression"].length > 0 &&
         topExpressionLayer["expression"][
           root["cursorStack"][root["cursorStack"].length - 1] - 1
         ]["type"] === "function"
       ) {
-        //cases similar to sin(30 + 90)|
         root["cursorStack"][root["cursorStack"].length - 1]--;
         root["cursorStack"].push(
           topExpressionLayer["expression"][
             root["cursorStack"][root["cursorStack"].length - 1]
           ]["expression"].length
         );
-      } else if (
+      }
+      //cases similar to (9 * 8)|
+      else if (
         topExpressionLayer["expression"].length > 0 &&
         topExpressionLayer["expression"][
           root["cursorStack"][root["cursorStack"].length - 1] - 1
         ]["bracket_type"] === "closing"
       ) {
         root["cursorStack"][root["cursorStack"].length - 1]--;
+      }
+      //cases like (|)
+      else if (
+        topExpressionLayer["expression"].length > 0 &&
+        topExpressionLayer["expression"][
+          root["cursorStack"][root["cursorStack"].length - 1] - 1
+        ]["bracket_type"] === "opening" &&
+        topExpressionLayer["expression"][
+          root["cursorStack"][root["cursorStack"].length - 1]
+        ]["bracket_type"] === "closing"
+      ) {
+        topExpressionLayer["expression"].splice(
+          root["cursorStack"][root["cursorStack"].length - 1],
+          1
+        );
+        root["cursorStack"][root["cursorStack"].length - 1]--;
+        topExpressionLayer["expression"].splice(
+          root["cursorStack"][root["cursorStack"].length - 1],
+          1
+        );
       } else if (
         topExpressionLayer["type"] !== "root" ||
         (topExpressionLayer["type"] === "root" &&

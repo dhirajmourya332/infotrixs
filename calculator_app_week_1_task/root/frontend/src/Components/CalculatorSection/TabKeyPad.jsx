@@ -343,7 +343,7 @@ export default function TabKeyPad({
         </div>
         <div className="flex flex-row gap-3 w-full">
           <button
-            className="py-2 bg-white rounded-md w-full active:bg-slate-200 "
+            className="py-3 bg-white rounded-md w-full active:bg-slate-200 "
             onClick={() => {
               if (expressionRoot["expression"].length > 0) {
                 const result = Calculate(
@@ -365,7 +365,17 @@ export default function TabKeyPad({
               }
             }}
           >
-            =
+            <svg
+              className="w-full h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.75 7a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 0 1 0-2.5h17.5zM20.75 15.5a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 1 1 0-2.5h17.5z"
+                fill="#000000"
+              />
+            </svg>
           </button>
         </div>
       </div>

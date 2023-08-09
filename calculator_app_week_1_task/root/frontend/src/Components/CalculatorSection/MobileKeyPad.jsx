@@ -88,11 +88,13 @@ export default function MobileKeypad({
         </div>
       ) : (
         <>
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row">
             <button
               className={`py-2 w-full  ${
-                currentSection === "number" ? "bg-slate-300/50 font-bold" : ""
-              }  rounded-md rounded-b-none`}
+                currentSection === "number"
+                  ? "bg-slate-300/50 font-bold"
+                  : "border-t border-l border-slate-300/50"
+              }  rounded-tl-md`}
               onClick={() => {
                 setCurrentSection("number");
               }}
@@ -101,8 +103,10 @@ export default function MobileKeypad({
             </button>
             <button
               className={`py-2 w-full  ${
-                currentSection === "function" ? "bg-slate-300/50 font-bold" : ""
-              }  rounded-md rounded-b-none`}
+                currentSection === "function"
+                  ? "bg-slate-300/50 font-bold"
+                  : "border-t border-r border-slate-300/50"
+              }  rounded-tr-md`}
               onClick={() => {
                 setCurrentSection("function");
               }}
@@ -112,11 +116,7 @@ export default function MobileKeypad({
           </div>
 
           <div
-            className={`flex flex-row items-center gap-2 bg-slate-300/50 rounded-md p-2 py-3 ${
-              currentSection === "number"
-                ? "rounded-tl-none"
-                : "rounded-tr-none"
-            }`}
+            className={`flex flex-row items-center gap-2 bg-slate-300/50 rounded-md rounded-t-none p-2 py-3 `}
           >
             {currentSection === "number" ? (
               <>
@@ -469,7 +469,7 @@ export default function MobileKeypad({
 
           <div className="flex flex-row gap-3 mt-3 items-center">
             <button
-              className="py-2 rounded-md w-full bg-white active:bg-slate-200 font-bold"
+              className="py-3 rounded-md w-full bg-white active:bg-slate-200 font-bold"
               onClick={() => {
                 if (expressionRoot["expression"].length > 0) {
                   const result = Calculate(
@@ -491,7 +491,17 @@ export default function MobileKeypad({
                 }
               }}
             >
-              =
+              <svg
+                className="w-full h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.75 7a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 0 1 0-2.5h17.5zM20.75 15.5a1.25 1.25 0 1 1 0 2.5H3.25a1.25 1.25 0 1 1 0-2.5h17.5z"
+                  fill="#000000"
+                />
+              </svg>
             </button>
             <button
               className="w-10 h-10 rounded-full p-2 shrink-0 bg-slate-200"
