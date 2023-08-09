@@ -171,7 +171,10 @@ export default function useExpressionManager() {
       topExpressionLayer["expression"].length > 0 &&
       topExpressionLayer["expression"][
         root["cursorStack"][root["cursorStack"].length - 1] - 1
-      ]["type"] !== "operator"
+      ]["type"] !== "operator" &&
+      topExpressionLayer["expression"][
+        root["cursorStack"][root["cursorStack"].length - 1] - 1
+      ]["bracket_type"] !== "opening"
     ) {
       addOperator(root, { type: "operator", operator_type: "multiplication" });
     }
