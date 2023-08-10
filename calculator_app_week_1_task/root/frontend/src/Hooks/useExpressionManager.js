@@ -278,8 +278,8 @@ export default function useExpressionManager() {
         ];
         prevRootClone["cursorStack"] = [1];
       }
-      if (element["type"] === "error") {
-        prevRootClone["expression"] = [{ type: "error" }];
+      if (element["type"] === "Error") {
+        prevRootClone["expression"] = [{ type: "Error" }];
         prevRootClone["cursorStack"] = [1];
       }
       return prevRootClone;

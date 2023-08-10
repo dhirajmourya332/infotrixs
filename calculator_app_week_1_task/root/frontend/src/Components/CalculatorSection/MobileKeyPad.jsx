@@ -486,7 +486,7 @@ export default function MobileKeypad({
                     clearExpression();
                     addElement({ type: "result", value: result });
                   } else {
-                    addElement({ type: "error" });
+                    addElement({ type: "Error" });
                   }
                 }
               }}
