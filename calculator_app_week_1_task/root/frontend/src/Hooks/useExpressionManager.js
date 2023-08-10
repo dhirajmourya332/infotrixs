@@ -272,6 +272,12 @@ export default function useExpressionManager() {
       if (element["type"] === "function") addFunction(prevRootClone, element);
       if (element["type"] === "constant") addConstant(prevRootClone, element);
       if (element["type"] === "bracket") addBracket(prevRootClone, element);
+      if (element["type"] === "result") {
+        prevRootClone["expression"] = [
+          { type: "result", value: element["value"] },
+        ];
+        prevRootClone["cursorStack"] = [1];
+      }
       if (element["type"] === "error") {
         prevRootClone["expression"] = [{ type: "error" }];
         prevRootClone["cursorStack"] = [1];

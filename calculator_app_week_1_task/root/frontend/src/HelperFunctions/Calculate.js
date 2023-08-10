@@ -129,14 +129,21 @@ export default function Calculate(expression) {
     }
   });
   try {
-    console.log(funcBody);
     let calculationResult = new Function(funcBody)();
-    //this is to return 0 instead of negligible number
+    //return error if the result is NaN
+    if (isNaN(calculationResult)) {
+      return "Error";
+    }
+    //return stringified infinity if value is infinite
+    if (!isFinite(calculationResult)) {
+      return "Infinity";
+    }
+    //return 0 instead of negligible number
     if (Math.abs(calculationResult) < Number.EPSILON) {
       calculationResult = 0;
     }
     return calculationResult;
   } catch (error) {
-    return "error";
+    return "Error";
   }
 }

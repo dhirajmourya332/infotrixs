@@ -96,7 +96,7 @@ export default function StringifyExpression(expression) {
         }
         break;
 
-      case "error":
+      case "Error":
         stringifiedExpression += "Error!";
         break;
 

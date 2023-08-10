@@ -476,13 +476,13 @@ export default function MobileKeypad({
                     expressionRoot["expression"],
                     saveCalculation
                   );
-                  saveCalculation(
-                    expressionRoot["expression"],
-                    !isNaN(result) ? result : "NaN"
-                  ).catch((e) => {
-                    console.log(e);
-                  });
-                  if (typeof result === "number") {
+
+                  saveCalculation(expressionRoot["expression"], result).catch(
+                    (e) => {
+                      console.log(e);
+                    }
+                  );
+                  if (!isNaN(Number(result))) {
                     clearExpression();
                     addElement({ type: "result", value: result });
                   } else {
