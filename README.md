@@ -1,3 +1,3 @@
 # INFOTRIXS
 
-Repository for all the tasks / projects given at Infotrixs
+Repository for week1 task given at Infotrixs
